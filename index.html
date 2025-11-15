@@ -5,23 +5,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library</title>
     <link rel="stylesheet" href="style.css">
+    <link
+        href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css"
+        rel="stylesheet"
+    />
 </head>
 <body>
     <div class="main">
-        <div class="header">
+        <div class="nav">
             <h1>Personal Library</h1>
-            <input type="text" placeholder="Search">
+            <div class="search">
+                <input type="text" placeholder="Search">
+                <i class="mdi mdi-magnify"></i>
+            </div>
         </div>
         <div class="content">
-            <h2>Your Books</h2>
-            <button class="addBook">+ Add Book</button>
+            <div class="header">
+                <h2>My Books</h2>
+                <button class="addBook">+ Add Book</button>
+            </div>
             <div class="books">
+                <div class="book">
+                    <img src="./images/mockingbird.jpg" class="cover">
+                    <div class="info">
+                        <div class="row1">
+                            <h3 class="title">To Kill a Mockingbird</h3>
+                            <p class="author">Harper Lee</p>
+                        </div>
+                        <div class="row2">
+                            <button class="status">Finished</button>
+                            <button class="delete"><i class="mdi mdi-trash-can-outline"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="book">
+                    <img src="./images/gatsby.jpg" class="cover">
+                    <div class="info">
+                        <div class="row1">
+                            <h3 class="title">The Great Gatsby</h3>
+                            <p class="author">F. Scott Fitzgerald</p>
+                        </div>
+                        <div class="row2">
+                            <button class="status">Finished</button>
+                            <button class="delete"><i class="mdi mdi-trash-can-outline"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="book">
+                    <img src="./images/fahrenheit.jpg" class="cover">
+                    <div class="info">
+                        <div class="row1">
+                            <h3 class="title">Fahrenheit 451</h3>
+                            <p class="author">Ray Bradbury</p>
+                        </div>
+                        <div class="row2">
+                            <button class="status">Finished</button>
+                            <button class="delete"><i class="mdi mdi-trash-can-outline"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
             </div>
         </div>
     </div>
-
-
-
     <script src="script.js"></script>
 </body>
 </html>
