@@ -118,7 +118,7 @@ input:focus {
 .book {
     display: grid;
     grid-template-rows: 1fr 175px;
-    height: 700px;
+    height: 725px;
     width: 450px;
     background-color: white;
     box-shadow: 0 2px 4px 6px rgba(0,0,0,0.25);
@@ -211,14 +211,15 @@ dialog::backdrop {
 }
 
 .infoClose {
-    font-size: 45px;
+    font-size: 50px;
     color: white;
     width: fit-content;
+    margin-bottom: -30px;
+    transition: transform 0.2s ease;
 }
 
 .infoClose:hover {
-    box-shadow: 0 2px 4px 6px rgba(255,255,255,0.25);
-    transition: ease 0.2s all;
+    transform: scale(1.25);
 }
 
 .infoContainer {
@@ -229,7 +230,7 @@ dialog::backdrop {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    line-height: 40px;
+    line-height: 45px;
 }
 
 .status {
@@ -256,8 +257,9 @@ dialog::backdrop {
 
 .row2Header {
     display: flex;
-    width: 430px;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: -15px;
 }
 
 .footerInfo>p {
