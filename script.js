@@ -334,6 +334,3 @@ const addBtn = document.querySelector(".addBook");
 addBtn.addEventListener("click", () => {
     newBook();
 });
-
-
-
