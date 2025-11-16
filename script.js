@@ -2,11 +2,14 @@ const books = document.querySelector(".books");
 
 const library = [];
 
-function Book(cover, title, author, status) {
+function Book(cover, title, author, pages, year, description, status) {
     this.id = crypto.randomUUID();
     this.cover = cover;
     this.title = title;
     this.author = 'By ' + author;
+    this.pages = pages + " pages";
+    this.year = year;
+    this.description = description;
     if(status === true){
         this.status = 'Finished';
     }
@@ -15,8 +18,8 @@ function Book(cover, title, author, status) {
     }
 }
 
-function addBook(cover, title, author, status) {
-    const newBook = new Book(cover, title, author, status);
+function addBook(cover, title, author, pages, year, description, status) {
+    const newBook = new Book(cover, title, author, pages, year, description, status);
     library.push(newBook);
 }
 
@@ -28,6 +31,42 @@ Book.prototype.toggle = function() {
         this.status = 'Finished';
     }
     return this.status;
+}
+
+function showInfo(target){
+    const dialog = document.createElement("dialog");
+    const infoContainer = document.createElement("div");
+    infoContainer.classList.add("infoContainer");
+    const closeBtn = document.createElement("i");
+    closeBtn.classList.add("mdi", "mdi-close-box-outline", "infoClose");
+    infoContainer.appendChild("closeBtn");
+    const header = document.createElement("div");
+    header.classList.add("infoHeader");
+    const title = document.createElement("h1");
+    title.innerText = target.title;
+    header.appendChild(title);
+    const authorYear = document.createElement("p");
+    authorYear.innerText = target.author + " " + target.year;
+    header.appendChild(authorYear);
+    infoContainer.appendChild(header);
+    const descriptContainer = document.createElement("div");
+    descriptContainer.classList.add("descriptContainer");
+    const descriptTitle = document.createElement("h2");
+    descriptTitle.innerText = "Description";
+    descriptContainer.appendChild(descriptTitle);
+    const descriptInfo = document.createElement("p");
+    descriptInfo.innerText = target.description;
+    descriptContainer.appendChild(descriptInfo);
+    infoContainer.appendChild(descriptContainer);
+    const footer = document.createElement("div");
+    footer.classList.add("footerInfo");
+    const pageCount = document.createElement("p");
+    pageCount.innerText = target.pages;
+    footer.appendChild(pageCount);
+    infoContainer.appendChild(footer);
+    dialog.appendChild(infoContainer);
+    document.body.appendChild(dialog);
+
 }
 
 function displayBooks(library){
@@ -75,6 +114,11 @@ function displayBooks(library){
             const statusBtn = card.querySelector(".status");
             const target = library.find(book => book.id === card.dataset.id);
             statusBtn.innerText = target.toggle();
+        })
+
+        newBook.addEventListener("click", () => {
+            const target = library.find(book => book.id === newBook.dataset.id)
+            showInfo(target);
         })
 
         row2.appendChild(status);
