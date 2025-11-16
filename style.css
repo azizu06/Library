@@ -63,7 +63,7 @@ input[type='text']{
     margin-bottom: 50px;
 }
 
-.addBook {
+.addBook, .closeBtn, .submitBtn {
     display: flex;
     padding: 25px;
     height: 50px;
@@ -76,7 +76,7 @@ input[type='text']{
 
 .addBook:hover, .status:hover, .delete i:hover {
     background-color: #3c5566;
-    box-shadow: 0 2px 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px 6px rgba(0,0,0,0.2);
 }
 
 .search {
@@ -183,5 +183,62 @@ input:focus {
     transition: ease 0.25s all;
 }
 
+dialog::backdrop {
+    background-color: rgba(0,0,0,0.5);
+}
 
+dialog {
+    margin: 0 auto;
+    margin-top: 25vh;
+    border: 5px solid white;
+}
 
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding: 50px;
+    background-color: hsl(210, 29%, 24%);
+    color: white;
+}
+
+.inputRow {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.inputRow>input[type='text'], .inputRow>input[type='url']{
+    height: 45px;
+    padding: 0px 15px;
+}
+
+.formLabel {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.formHeader {
+    font-size: 36px;
+    border-bottom: 5px solid white;
+    padding-bottom: 10px;
+}
+
+.formFooter {
+    display: flex;
+    gap: 100px;
+}
+
+.closeBtn, .submitBtn {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+    height: 65px;
+    border: 3px solid #f9f5e9;
+    box-shadow: 0 2px 4px 6px rgba(0,0,0,0.2);
+    background-color: #3c5566;
+}
+
+.closeBtn:hover, .submitBtn:hover {
+    box-shadow: 0 4px 6px 8px rgba(0,0,0,0.4);
+}
