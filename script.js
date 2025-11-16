@@ -60,33 +60,64 @@ function newBook(){
     form.appendChild(formHeader);
     form.method = "dialog";
     form.classList.add("formContainer");
+
     const title = document.createElement("input");
+    const titleLabel = document.createElement("label");
+    const input1 = document.createElement("div");
+    titleLabel.innerText = 'Book Title*';
     title.type = 'text';
     title.placeholder = 'Enter book title'
-    title.innerText = 'Book Title*'
     title.required = true;
-    form.appendChild(title);
+    input1.appendChild(titleLabel);
+    input1.appendChild(title);
+    form.appendChild(input1);
+
     const author = document.createElement("input");
+    const authorLabel = document.createElement("label");
+    const input2 = document.createElement("div");
+    authorLabel.innerText = 'Enter author name*';
     author.type = 'text';
     author.placeholder = 'Enter author name';
-    author.innerText = 'Author';
     author.required = true;
-    form.appendChild(author);
+    input2.appendChild(authorLabel);
+    input2.appendChild(author);
+    form.appendChild(input2);
+
     const status = document.createElement("input");
+    const statusLabel = document.createElement("label");
+    const input3 = document.createElement("div");
+    statusLabel.innerText = 'I have read this book:'
     status.type = 'checkbox';
-    status.innerText = 'I have read this book:';
-    form.appendChild(status);
+    input3.appendChild(status);
+    input3.appendChild(statusLabel);
+    form.appendChild(input3);
+
     const image = document.createElement("input");
+    const imageLabel = document.createElement("label");
+    const input4 = document.createElement("div");
+    imageLabel.innerText = 'Cover Image';
     image.type = 'url';
-    image.innerText = 'Cover Image';
-    image.placeholder = 'https://images/'
+    image.placeholder = 'https://images/';
+    input4.appendChild(imageLabel);
+    input4.appendChild(image);
+    form.appendChild(input4);
+
+    input1.classList.add("inputRow");
+    input2.classList.add("inputRow");
+    input3.classList.add("inputRow");
+    input4.classList.add("inputRow");
+    titleLabel.classList.add("formLabel");
+    authorLabel.classList.add("formLabel");
+    statusLabel.classList.add("formLabel");
+    imageLabel.classList.add("formLabel");
     title.classList.add("formInput");
     author.classList.add("formInput");
     image.classList.add("formInput");
-    form.appendChild(image);
+
     const formFooter = document.createElement("div");
     formFooter.classList.add('formFooter');
     form.appendChild(formFooter);
+
     const closeBtn = document.createElement("button");
     closeBtn.innerText = 'Close';
     closeBtn.classList.add("closeBtn");
@@ -94,6 +125,7 @@ function newBook(){
         dialog.close();
     })
     formFooter.appendChild(closeBtn);
+
     const submitBtn = document.createElement("button");
     submitBtn.innerText = "Add to library";
     submitBtn.type = 'submit';
