@@ -287,7 +287,7 @@ function newBook(){
     formFooter.appendChild(submitBtn);
     form.addEventListener("submit", (e) => {
         e.preventDefault();
-        addBook(image.value, title.value, author.value, status.value);
+        addBook(image.value, title.value, author.value, page.value, year.value, description.value, status.value);
         books.innerHTML = "";
         displayBooks(library);
         dialog.close();
