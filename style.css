@@ -12,7 +12,7 @@ h2 {
     font-size: 40px;
 }
 
-p, button, input, label, .text {
+p, button, input, label, .text, textarea {
   font-family: 'Inter', sans-serif;
   font-size: 18px;
 }
@@ -49,7 +49,7 @@ input[type='text']{
     width: 30vw;
     padding-left: 10px;
     padding-right: 10px;
-    height: 40px;
+    height: 41px;
 }
 
 .header {
@@ -86,7 +86,7 @@ input[type='text']{
 }
 
 .search>i {
-    font-size: 29px;
+    font-size: 30px;
     background-color: #f9f5e9;
 }
 
@@ -190,7 +190,7 @@ dialog::backdrop {
 
 dialog {
     margin: 0 auto;
-    margin-top: 15vh;
+    margin-top: 10vh;
     border: 5px solid white;
 }
 
@@ -211,7 +211,24 @@ dialog {
 
 .inputRow>input[type='text'], .inputRow>input[type='url'], .inputRow>input[type='number']{
     height: 45px;
-    padding: 0px 15px;
+    padding: 5px 15px;
+    width: 600px;
+    font-size: 20px;
+}
+
+.input5 {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.input5>textarea {
+    display: flex;
+    height: 250px;
+    width: 600px;
+    font-size: 22px;
+    resize: none;
+    padding: 15px 15px 5px;
 }
 
 .input6 {
