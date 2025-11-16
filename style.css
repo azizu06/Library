@@ -74,7 +74,7 @@ input[type='text']{
     font-size: 20px;
 }
 
-.addBook:hover, .status:hover, .delete i:hover {
+.addBook:hover, .status:hover {
     background-color: #3c5566;
     box-shadow: 0 2px 4px 6px rgba(0,0,0,0.2);
 }
@@ -96,7 +96,7 @@ i {
     font-size: 30px;
 }
 
-i:hover {
+.delete:hover, .searchIcon:hover {
     background-color: hsl(45, 57%, 98%);
     box-shadow: 0 1px 2px 4px rgba(0,0,0,0.2);
     transition: ease 0.2s all;
@@ -188,13 +188,13 @@ dialog::backdrop {
     background-color: rgba(0,0,0,0.5);
 }
 
-dialog {
+.newDialog {
     margin: 0 auto;
     margin-top: 10vh;
     border: 5px solid white;
 }
 
-.formContainer {
+.formContainer, .infoContainer {
     display: flex;
     flex-direction: column;
     gap: 40px;
@@ -202,6 +202,64 @@ dialog {
     background-color: hsl(210, 29%, 24%);
     color: white;
 }
+
+.infoDialog {
+    margin: 0 auto;
+    margin-top: 25vh;
+    border: 5px solid white;
+    width: 750px;
+}
+
+.infoClose {
+    font-size: 45px;
+    color: white;
+    width: fit-content;
+}
+
+.infoClose:hover {
+    box-shadow: 0 2px 4px 6px rgba(255,255,255,0.25);
+    transition: ease 0.2s all;
+}
+
+.infoContainer {
+    gap: 60px;
+}
+
+.descriptContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    line-height: 40px;
+}
+
+.infoHeader {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.descriptContainer>p, .infoHeader>p, .footerInfo>p, .row2Header>p {
+    font-size: 24px;
+}
+
+.row2Header {
+    display: flex;
+    width: 430px;
+    justify-content: space-between;
+}
+
+.footerInfo>p {
+    font-weight: 900;
+    font-size: 26px;
+}
+
+.infoHeader>h1 {
+    font-size: 40px;
+}
+
+ .descriptContainer>h2 {
+    font-size: 32px;
+ }
 
 .inputRow {
     display: flex;
@@ -271,4 +329,3 @@ input[type='checkbox'] {
 .closeBtn:hover, .submitBtn:hover {
     box-shadow: 0 4px 6px 8px rgba(0,0,0,0.4);
 }
-
