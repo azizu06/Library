@@ -6,13 +6,28 @@ function Book(cover, title, author, status) {
     this.id = crypto.randomUUID();
     this.cover = cover;
     this.title = title;
-    this.author = author;
-    this.status = status;
+    this.author = 'By ' + author;
+    if(status === true){
+        this.status = 'Finished';
+    }
+    else{
+        this.status = 'In Progress';
+    }
 }
 
-function addBook(Book, cover, title, author, status) {
+function addBook(cover, title, author, status) {
     const newBook = new Book(cover, title, author, status);
     library.push(newBook);
+}
+
+Book.prototype.toggle = function() {
+    if(this.status === 'Finished'){
+        this.status = 'In Progress';
+    }
+    else{
+        this.status = 'Finished';
+    }
+    return this.status;
 }
 
 function displayBooks(library){
@@ -23,26 +38,45 @@ function displayBooks(library){
         cover.src = book.cover;
         cover.classList.add("cover");
         newBook.appendChild(cover);
+        newBook.dataset.id = book.id;
+
         const info = document.createElement("div");
         const row1 = document.createElement("div");
         const title = document.createElement("h3");
         const author = document.createElement("p");
+
         row1.classList.add("row1");
         title.innerText = book.title;
         author.innerText = book.author;
         title.classList.add("title");
         author.classList.add("author");
         info.classList.add("info");
+
         row1.appendChild(title);
         row1.appendChild(author);
         info.appendChild(row1);
+
         const row2 = document.createElement("div");
         row2.classList.add("row2");
         const status = document.createElement("button");
         const trash = document.createElement("i");
         trash.classList.add("mdi", "mdi-trash-can-outline", "delete");
+        trash.addEventListener("click", (e) => {
+            const card = e.target.closest(".book");
+            library = library.filter(book => book.id !== card.dataset.id);
+            books.innerHTML = "";
+            displayBooks(library);
+        })
+
         status.innerText = book.status;
         status.classList.add("status");
+        status.addEventListener("click", (e) => {
+            const card = e.target.closest(".book");
+            const statusBtn = card.querySelector(".status");
+            const target = library.find(book => book.id === card.dataset.id);
+            statusBtn.innerText = target.toggle();
+        })
+
         row2.appendChild(status);
         row2.appendChild(trash);
         info.appendChild(row2);
@@ -88,8 +122,8 @@ function newBook(){
     const input3 = document.createElement("div");
     statusLabel.innerText = 'I have read this book:'
     status.type = 'checkbox';
-    input3.appendChild(status);
     input3.appendChild(statusLabel);
+    input3.appendChild(status);
     form.appendChild(input3);
 
     const image = document.createElement("input");
@@ -104,7 +138,7 @@ function newBook(){
 
     input1.classList.add("inputRow");
     input2.classList.add("inputRow");
-    input3.classList.add("inputRow");
+    input3.classList.add("input4");
     input4.classList.add("inputRow");
     titleLabel.classList.add("formLabel");
     authorLabel.classList.add("formLabel");
@@ -131,29 +165,30 @@ function newBook(){
     submitBtn.type = 'submit';
     submitBtn.classList.add("submitBtn");
     formFooter.appendChild(submitBtn);
-    submitBtn.addEventListener("click", (e) => {
+    form.addEventListener("submit", (e) => {
         e.preventDefault();
-        addBook(Book, cover.value, title.value, author.value, status.value);
+        addBook(image.value, title.value, author.value, status.value);
+        books.innerHTML = "";
         displayBooks(library);
+        dialog.close();
     })
     dialog.appendChild(form);
     document.body.appendChild(dialog);
     dialog.showModal();
 }
 
-addBook(Book, "./images/mockingbird.jpg", "To Kill a MockingBird", "Harper Lee", "Finished");
+addBook("./images/mockingbird.jpg", "To Kill a MockingBird", "Harper Lee", true);
 
-addBook(Book, "./images/gatsby.jpg", "The Great Gatsby", "F. Scott Fitzgerald", "Finished");
+addBook("./images/gatsby.jpg", "The Great Gatsby", "F. Scott Fitzgerald", true);
 
-addBook(Book, "./images/fahrenheit.jpg", "Fahrenheit", "Ray Bradbury", "Finished");
+addBook("./images/fahrenheit.jpg", "Fahrenheit", "Ray Bradbury", true);
 
 displayBooks(library);
 
 const addBtn = document.querySelector(".addBook");
 addBtn.addEventListener("click", () => {
     newBook();
-})
+});
 
-trash.addEventListener("click", () => {
 
-})
+
