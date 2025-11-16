@@ -190,14 +190,14 @@ dialog::backdrop {
 
 dialog {
     margin: 0 auto;
-    margin-top: 25vh;
+    margin-top: 15vh;
     border: 5px solid white;
 }
 
 .formContainer {
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: 40px;
     padding: 50px;
     background-color: hsl(210, 29%, 24%);
     color: white;
@@ -206,15 +206,15 @@ dialog {
 .inputRow {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
 }
 
-.inputRow>input[type='text'], .inputRow>input[type='url'] {
+.inputRow>input[type='text'], .inputRow>input[type='url'], .inputRow>input[type='number']{
     height: 45px;
     padding: 0px 15px;
 }
 
-.input4 {
+.input6 {
     display: flex;
     gap: 15px;
     align-items: center;
