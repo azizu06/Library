@@ -8,7 +8,7 @@ function Book(cover, title, author, pages, year, description, status) {
     this.title = title;
     this.author = 'By ' + author;
     this.pages = pages + " pages";
-    this.year = year;
+    this.year = "Published in " + year;
     this.description = description;
     if(status === true){
         this.status = 'Finished';
@@ -35,6 +35,7 @@ Book.prototype.toggle = function() {
 
 function showInfo(target){
     const dialog = document.createElement("dialog");
+    dialog.classList.add("infoDialog");
     const infoContainer = document.createElement("div");
     infoContainer.classList.add("infoContainer");
     const closeBtn = document.createElement("i");
@@ -49,9 +50,15 @@ function showInfo(target){
     const title = document.createElement("h1");
     title.innerText = target.title;
     header.appendChild(title);
-    const authorYear = document.createElement("p");
-    authorYear.innerText = target.author + " " + target.year;
-    header.appendChild(authorYear);
+    const author = document.createElement("p");
+    const year = document.createElement("p");
+    const row2 = document.createElement("div");
+    row2.classList.add("row2Header");
+    author.innerText = target.author;
+    year.innerText = target.year;
+    row2.appendChild(author);
+    row2.appendChild(year);
+    header.appendChild(row2);
     infoContainer.appendChild(header);
 
     const descriptContainer = document.createElement("div");
@@ -138,6 +145,7 @@ function displayBooks(library){
 
 function newBook(){
     const dialog = document.createElement("dialog");
+    dialog.classList.add("newDialog")
     const form = document.createElement("form");
     const formHeader = document.createElement("h1");
     formHeader.innerText = 'Enter book info';
@@ -268,11 +276,36 @@ function newBook(){
     dialog.showModal();
 }
 
-addBook("./images/mockingbird.jpg", "To Kill a MockingBird", "Harper Lee", true);
+addBook(
+    "./images/mockingbird.jpg",
+    "To Kill a MockingBird",
+    "Harper Lee", 
+    281,
+    1960,
+    "Harper Lee’s classic novel explores the themes of racial injustice, moral growth, and empathy in the deep American South during the 1930s. Told through the eyes of young Scout Finch, the story follows her father, Atticus Finch, as he defends an innocent Black man falsely accused of a crime. As Scout and her brother Jem learn harsh lessons about prejudice and integrity, the novel invites readers to reflect on compassion and the courage it takes to stand up for what is right.",
+    true
+);
 
-addBook("./images/gatsby.jpg", "The Great Gatsby", "F. Scott Fitzgerald", true);
 
-addBook("./images/fahrenheit.jpg", "Fahrenheit", "Ray Bradbury", true);
+addBook(
+    "./images/gatsby.jpg", 
+    "The Great Gatsby", 
+    "F. Scott Fitzgerald", 
+    180,
+    1925,
+    "Set in the dazzling Jazz Age of the 1920s, The Great Gatsby tells the story of mysterious millionaire Jay Gatsby and his obsessive love for Daisy Buchanan. Narrated by Nick Carraway, the novel delves into themes of wealth, class, desire, and the illusion of the American Dream. Beneath the glamorous parties and glittering lifestyles lies a powerful critique of excess, corruption, and the cost of chasing dreams that cannot be fulfilled.",
+    true
+);
+
+addBook(
+    "./images/fahrenheit.jpg", 
+    "Fahrenheit", 
+    "Ray Bradbury", 
+    194,
+    1953,
+    "In a dystopian future where books are outlawed and critical thought is discouraged, firemen burn literature to suppress ideas and control society. Guy Montag, a dedicated fireman, begins to question his role as he encounters individuals who value knowledge and free expression. As Montag’s growing curiosity turns into rebellion, the novel explores censorship, technology’s influence on human behavior, and the importance of preserving intellectual freedom.",
+    true
+);
 
 displayBooks(library);
 
