@@ -190,11 +190,10 @@ function newBook(){
     input4.appendChild(page);
     form.appendChild(input4);
 
-    const description = document.createElement("input");
+    const description = document.createElement("textarea");
     const descriptionLabel = document.createElement("label");
     const input5 = document.createElement("div");
     descriptionLabel.innerText = 'Description';
-    description.type = 'text';
     description.placeholder = 'Enter book description';
     input5.appendChild(descriptionLabel);
     input5.appendChild(description);
@@ -223,7 +222,7 @@ function newBook(){
     input2.classList.add("inputRow");
     input3.classList.add("inputRow");
     input4.classList.add("inputRow");
-    input5.classList.add("inputRow");
+    input5.classList.add("input5");
     input6.classList.add("input6");
     input7.classList.add("inputRow");
     titleLabel.classList.add("formLabel");
