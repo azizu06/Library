@@ -39,7 +39,11 @@ function showInfo(target){
     infoContainer.classList.add("infoContainer");
     const closeBtn = document.createElement("i");
     closeBtn.classList.add("mdi", "mdi-close-box-outline", "infoClose");
-    infoContainer.appendChild("closeBtn");
+    infoContainer.appendChild(closeBtn);
+    closeBtn.addEventListener("click", () => {
+        dialog.close();
+    })
+
     const header = document.createElement("div");
     header.classList.add("infoHeader");
     const title = document.createElement("h1");
@@ -49,6 +53,7 @@ function showInfo(target){
     authorYear.innerText = target.author + " " + target.year;
     header.appendChild(authorYear);
     infoContainer.appendChild(header);
+
     const descriptContainer = document.createElement("div");
     descriptContainer.classList.add("descriptContainer");
     const descriptTitle = document.createElement("h2");
@@ -58,6 +63,7 @@ function showInfo(target){
     descriptInfo.innerText = target.description;
     descriptContainer.appendChild(descriptInfo);
     infoContainer.appendChild(descriptContainer);
+
     const footer = document.createElement("div");
     footer.classList.add("footerInfo");
     const pageCount = document.createElement("p");
@@ -66,6 +72,7 @@ function showInfo(target){
     infoContainer.appendChild(footer);
     dialog.appendChild(infoContainer);
     document.body.appendChild(dialog);
+    dialog.showModal();
 
 }
 
@@ -153,7 +160,7 @@ function newBook(){
     const author = document.createElement("input");
     const authorLabel = document.createElement("label");
     const input2 = document.createElement("div");
-    authorLabel.innerText = 'Enter author name*';
+    authorLabel.innerText = 'Author*';
     author.type = 'text';
     author.placeholder = 'Enter author name';
     author.required = true;
@@ -161,36 +168,77 @@ function newBook(){
     input2.appendChild(author);
     form.appendChild(input2);
 
+    const year = document.createElement("input");
+    const yearLabel = document.createElement("label");
+    const input3 = document.createElement("div");
+    yearLabel.innerText = 'Year*';
+    year.type = 'number';
+    year.placeholder = 'Enter publication year';
+    year.required = true;
+    input3.appendChild(yearLabel);
+    input3.appendChild(year);
+    form.appendChild(input3);
+
+    const page = document.createElement("input");
+    const pageLabel = document.createElement("label");
+    const input4 = document.createElement("div");
+    pageLabel.innerText = 'Pages*';
+    page.type = 'number';
+    page.placeholder = 'Enter number of pages';
+    year.required = true;
+    input4.appendChild(pageLabel);
+    input4.appendChild(page);
+    form.appendChild(input4);
+
+    const description = document.createElement("input");
+    const descriptionLabel = document.createElement("label");
+    const input5 = document.createElement("div");
+    descriptionLabel.innerText = 'Description';
+    description.type = 'text';
+    description.placeholder = 'Enter book description';
+    input5.appendChild(descriptionLabel);
+    input5.appendChild(description);
+    form.appendChild(input5);
+
     const status = document.createElement("input");
     const statusLabel = document.createElement("label");
-    const input3 = document.createElement("div");
+    const input6 = document.createElement("div");
     statusLabel.innerText = 'I have read this book:'
     status.type = 'checkbox';
-    input3.appendChild(statusLabel);
-    input3.appendChild(status);
-    form.appendChild(input3);
+    input6.appendChild(statusLabel);
+    input6.appendChild(status);
+    form.appendChild(input6);
 
     const image = document.createElement("input");
     const imageLabel = document.createElement("label");
-    const input4 = document.createElement("div");
+    const input7 = document.createElement("div");
     imageLabel.innerText = 'Cover Image';
     image.type = 'url';
     image.placeholder = 'https://images/';
-    input4.appendChild(imageLabel);
-    input4.appendChild(image);
-    form.appendChild(input4);
+    input7.appendChild(imageLabel);
+    input7.appendChild(image);
+    form.appendChild(input7);
 
     input1.classList.add("inputRow");
     input2.classList.add("inputRow");
-    input3.classList.add("input4");
+    input3.classList.add("inputRow");
     input4.classList.add("inputRow");
+    input5.classList.add("inputRow");
+    input6.classList.add("input6");
+    input7.classList.add("inputRow");
     titleLabel.classList.add("formLabel");
     authorLabel.classList.add("formLabel");
     statusLabel.classList.add("formLabel");
     imageLabel.classList.add("formLabel");
+    pageLabel.classList.add("formLabel");
+    yearLabel.classList.add("formLabel");
+    descriptionLabel.classList.add("formLabel");
     title.classList.add("formInput");
     author.classList.add("formInput");
     image.classList.add("formInput");
+    page.classList.add("formInput");
+    description.classList.add("formInput");
+    year.classList.add("formInput");
 
     const formFooter = document.createElement("div");
     formFooter.classList.add('formFooter');
