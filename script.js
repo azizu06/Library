@@ -51,23 +51,62 @@ function displayBooks(library){
     }
 }
 
-
 function newBook(){
     const dialog = document.createElement("dialog");
     const form = document.createElement("form");
     const formHeader = document.createElement("h1");
+    formHeader.innerText = 'Enter book info';
+    formHeader.classList.add('formHeader');
     form.appendChild(formHeader);
     form.method = "dialog";
+    form.classList.add("formContainer");
     const title = document.createElement("input");
     title.type = 'text';
     title.placeholder = 'Enter book title'
     title.innerText = 'Book Title*'
     title.required = true;
+    form.appendChild(title);
     const author = document.createElement("input");
     author.type = 'text';
     author.placeholder = 'Enter author name';
     author.innerText = 'Author';
     author.required = true;
+    form.appendChild(author);
+    const status = document.createElement("input");
+    status.type = 'checkbox';
+    status.innerText = 'I have read this book:';
+    form.appendChild(status);
+    const image = document.createElement("input");
+    image.type = 'url';
+    image.innerText = 'Cover Image';
+    image.placeholder = 'https://images/'
+    title.classList.add("formInput");
+    author.classList.add("formInput");
+    image.classList.add("formInput");
+    form.appendChild(image);
+    const formFooter = document.createElement("div");
+    formFooter.classList.add('formFooter');
+    form.appendChild(formFooter);
+    const closeBtn = document.createElement("button");
+    closeBtn.innerText = 'Close';
+    closeBtn.classList.add("closeBtn");
+    closeBtn.addEventListener("click", () => {
+        dialog.close();
+    })
+    formFooter.appendChild(closeBtn);
+    const submitBtn = document.createElement("button");
+    submitBtn.innerText = "Add to library";
+    submitBtn.type = 'submit';
+    submitBtn.classList.add("submitBtn");
+    formFooter.appendChild(submitBtn);
+    submitBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        addBook(Book, cover.value, title.value, author.value, status.value);
+        displayBooks(library);
+    })
+    dialog.appendChild(form);
+    document.body.appendChild(dialog);
+    dialog.showModal();
 }
 
 addBook(Book, "./images/mockingbird.jpg", "To Kill a MockingBird", "Harper Lee", "Finished");
@@ -81,5 +120,8 @@ displayBooks(library);
 const addBtn = document.querySelector(".addBook");
 addBtn.addEventListener("click", () => {
     newBook();
-    displayBooks(library);
+})
+
+trash.addEventListener("click", () => {
+
 })
