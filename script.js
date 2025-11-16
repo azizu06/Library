@@ -14,7 +14,7 @@ function Book(cover, title, author, pages, year, description, status) {
         this.status = 'Finished';
     }
     else{
-        this.status = 'In Progress';
+        this.status = 'Reading';
     }
 }
 
@@ -25,7 +25,7 @@ function addBook(cover, title, author, pages, year, description, status) {
 
 Book.prototype.toggle = function() {
     if(this.status === 'Finished'){
-        this.status = 'In Progress';
+        this.status = 'Reading';
     }
     else{
         this.status = 'Finished';
@@ -111,6 +111,10 @@ function displayBooks(library){
 
         const row2 = document.createElement("div");
         row2.classList.add("row2");
+        const statusIcon = document.createElement("i");
+        statusIcon.classList.add("mdi", "mdi-checkbox-outline", "finishedBtn")
+        const statusIcon2 = document.createElement("i");
+        statusIcon2.classList.add("mdi", "mdi-progress-clock", "progressBtn")
         const status = document.createElement("button");
         const trash = document.createElement("i");
         trash.classList.add("mdi", "mdi-trash-can-outline", "delete");
@@ -120,14 +124,31 @@ function displayBooks(library){
             books.innerHTML = "";
             displayBooks(library);
         })
-
-        status.innerText = book.status;
-        status.classList.add("status");
+        if(book.status === 'Finished' || book.status === true){
+            status.innerText = book.status;
+            status.classList.add("status");
+            status.appendChild(statusIcon);
+        }
+        else {
+            status.innerText = book.status;
+            status.classList.add("status");
+            status.appendChild(statusIcon2);
+        }
         status.addEventListener("click", (e) => {
+            e.stopPropagation();
             const card = e.target.closest(".book");
             const statusBtn = card.querySelector(".status");
             const target = library.find(book => book.id === card.dataset.id);
-            statusBtn.innerText = target.toggle();
+            if(target.toggle() === 'Finished'){
+                status.innerText = target.status;
+                status.classList.add("status");
+                status.appendChild(statusIcon);
+            }
+            else {
+                status.innerText = target.status;
+                status.classList.add("status");
+                status.appendChild(statusIcon2);
+            }
         })
 
         newBook.addEventListener("click", () => {
