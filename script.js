@@ -1,36 +1,37 @@
 const books = document.querySelector(".books");
 
-const library = [];
+let library = [];
 
-function Book(cover, title, author, pages, year, description, status) {
-    this.id = crypto.randomUUID();
-    this.cover = cover;
-    this.title = title;
-    this.author = 'By ' + author;
-    this.pages = pages + " pages";
-    this.year = "Published in " + year;
-    this.description = description;
-    if(status === true){
-        this.status = 'Finished';
+class Book {
+    constructor(cover, title, author, pages, year, description, status) {
+        this.id = crypto.randomUUID();
+        this.cover = cover;
+        this.title = title;
+        this.author = 'By ' + author;
+        this.pages = pages + " pages";
+        this.year = "Published in " + year;
+        this.description = description;
+        if(status === true){
+            this.status = 'Finished';
+        }
+        else{
+            this.status = 'Reading';
+        }
     }
-    else{
-        this.status = 'Reading';
+    toggle() {
+        if(this.status === 'Finished'){
+            this.status = 'Reading';
+        }
+        else{
+            this.status = 'Finished';
+        }
+        return this.status;
     }
 }
 
 function addBook(cover, title, author, pages, year, description, status) {
     const newBook = new Book(cover, title, author, pages, year, description, status);
     library.push(newBook);
-}
-
-Book.prototype.toggle = function() {
-    if(this.status === 'Finished'){
-        this.status = 'Reading';
-    }
-    else{
-        this.status = 'Finished';
-    }
-    return this.status;
 }
 
 function showInfo(target){
@@ -287,7 +288,7 @@ function newBook(){
     formFooter.appendChild(submitBtn);
     form.addEventListener("submit", (e) => {
         e.preventDefault();
-        addBook(image.value, title.value, author.value, page.value, year.value, description.value, status.value);
+        addBook(image.value, title.value, author.value, page.value, year.value, description.value, status.checked);
         books.innerHTML = "";
         displayBooks(library);
         dialog.close();
