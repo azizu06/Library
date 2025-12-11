@@ -1,342 +1,360 @@
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Inter:wght@400;500;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Inter:wght@400;500;600&display=swap");
 
-h1, h2, h3, .title {
-  font-family: 'Merriweather', serif;
+h1,
+h2,
+h3,
+.title {
+  font-family: "Merriweather", serif;
 }
 
 h1 {
-    font-size: 45px;
+  font-size: 45px;
 }
 
 h2 {
-    font-size: 40px;
+  font-size: 40px;
 }
 
-p, button, input, label, .text, textarea {
-  font-family: 'Inter', sans-serif;
+p,
+button,
+input,
+label,
+.text,
+textarea {
+  font-family: "Inter", sans-serif;
   font-size: 18px;
 }
 
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    height: 100vh;
-    background-color: #f9f5e9;
+  height: 100vh;
+  background-color: #f9f5e9;
 }
 
 .main {
-    display: grid;
-    grid-template-rows: 150px  75px 1fr;
-   
+  display: grid;
+  grid-template-rows: 150px 75px 1fr;
 }
 
 .nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 50px 75px;
-    gap: 50px;
-    background-color: #2c3e50;
-    color: #f9f5e9;
-    box-shadow: 0 2px 4px 8px rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px 75px;
+  gap: 50px;
+  background-color: #2c3e50;
+  color: #f9f5e9;
+  box-shadow: 0 2px 4px 8px rgba(0, 0, 0, 0.4);
 }
 
-input[type='text']{
-    width: 30vw;
-    padding-left: 10px;
-    padding-right: 10px;
-    height: 41px;
+input[type="text"] {
+  width: 30vw;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 41px;
 }
 
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 50px 100px;
-    gap: 50px;
-    align-items: center;
-    margin-bottom: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px 100px;
+  gap: 50px;
+  align-items: center;
+  margin-bottom: 50px;
 }
 
-.addBook, .closeBtn, .submitBtn {
-    display: flex;
-    padding: 25px;
-    height: 50px;
-    border-radius: 10px;
-    align-items: center;
-    background-color: #2c3e50;
-    color: white;
-    font-size: 20px;
+.addBook,
+.closeBtn,
+.submitBtn {
+  display: flex;
+  padding: 25px;
+  height: 50px;
+  border-radius: 10px;
+  align-items: center;
+  background-color: #2c3e50;
+  color: white;
+  font-size: 20px;
 }
 
-.addBook:hover, .status:hover {
-    background-color: #3c5566;
-    box-shadow: 0 2px 4px 6px #00000033;
+.addBook:hover,
+.status:hover {
+  background-color: #3c5566;
+  box-shadow: 0 2px 4px 6px #00000033;
 }
 
 .search {
-    display: flex;
-    align-items: center;
-    box-shadow: 0 2px 4px 6px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.search>i {
-    font-size: 32px;
-    background-color: #f9f5e9;
+.search > i {
+  font-size: 32px;
+  background-color: #f9f5e9;
 }
 
 i {
-    color: black;
-    padding: 3px;
-    font-size: 30px;
+  color: black;
+  padding: 3px;
+  font-size: 30px;
 }
 
-.delete:hover, .searchIcon:hover {
-    background-color: hsl(45, 57%, 98%);
-    box-shadow: 0 1px 2px 4px rgba(0,0,0,0.2);
-    transition: ease 0.2s all;
+.delete:hover,
+.searchIcon:hover {
+  background-color: hsl(45, 57%, 98%);
+  box-shadow: 0 1px 2px 4px rgba(0, 0, 0, 0.2);
+  transition: ease 0.2s all;
 }
 
 input:focus {
-    outline: none;
+  outline: none;
 }
 
-
 .books {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 300px;
-    justify-items: center;
-    margin: 0px 100px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 300px;
+  justify-items: center;
+  margin: 0px 100px;
 }
 
 .book {
-    display: grid;
-    grid-template-rows: 1fr 175px;
-    height: 725px;
-    width: 450px;
-    background-color: white;
-    box-shadow: 0 2px 4px 6px rgba(0,0,0,0.25);
-    margin-bottom: -150px;
+  display: grid;
+  grid-template-rows: 1fr 175px;
+  height: 725px;
+  width: 450px;
+  background-color: white;
+  box-shadow: 0 2px 4px 6px rgba(0, 0, 0, 0.25);
+  margin-bottom: -150px;
 }
-
 
 .status {
-    display: flex;
-    padding: 20px;
-    height: 30px;
-    border-radius: 10px;
-    align-items: center;
-    background-color: #2c3e50;
-    color: white;
-    font-size: 18px;
-    max-width: 150px;
+  display: flex;
+  padding: 20px;
+  height: 30px;
+  border-radius: 10px;
+  align-items: center;
+  background-color: #2c3e50;
+  color: white;
+  font-size: 18px;
+  max-width: 150px;
 }
 
-.info{
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: 20px;
-    font-size: 22px;
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  font-size: 22px;
 }
 
 .row1 {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .author {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 .row2 {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .delete i {
-    display: flex;
-    padding: 10px;
-    height: 20px;
-    align-items: center;
-    background-color: #2c3e50;
-    color: white;
-    font-size: 30px;
-    max-width: 150px;
+  display: flex;
+  padding: 10px;
+  height: 20px;
+  align-items: center;
+  background-color: #2c3e50;
+  color: white;
+  font-size: 30px;
+  max-width: 150px;
 }
 
 .cover {
-    height: 500px;
-    width: 400px;
-    place-self: center;
-    padding: 20px 15px;
+  height: 500px;
+  width: 400px;
+  place-self: center;
+  padding: 20px 15px;
 }
 
 .book:hover {
-    box-shadow: 0 8px 10px 12px rgba(0,0,0,0.5);
-    transition: ease 0.25s all;
+  box-shadow: 0 8px 10px 12px rgba(0, 0, 0, 0.5);
+  transition: ease 0.25s all;
 }
 
 dialog::backdrop {
-    background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .newDialog {
-    margin: 0 auto;
-    margin-top: 10vh;
-    border: 5px solid white;
+  margin: 0 auto;
+  margin-top: 5vh;
+  border: 5px solid white;
 }
 
-.formContainer, .infoContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    padding: 50px;
-    background-color: hsl(210, 29%, 24%);
-    color: white;
+.formContainer,
+.infoContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 50px;
+  background-color: hsl(210, 29%, 24%);
+  color: white;
 }
 
 .infoDialog {
-    margin: 0 auto;
-    margin-top: 25vh;
-    border: 5px solid white;
-    width: 750px;
+  margin: 0 auto;
+  margin-top: 25vh;
+  border: 5px solid white;
+  width: 750px;
 }
 
 .infoClose {
-    font-size: 50px;
-    color: white;
-    width: fit-content;
-    margin-bottom: -30px;
-    transition: transform 0.2s ease;
+  font-size: 50px;
+  color: white;
+  width: fit-content;
+  margin-bottom: -30px;
+  transition: transform 0.2s ease;
 }
 
 .infoClose:hover {
-    transform: scale(1.25);
+  transform: scale(1.25);
 }
 
 .infoContainer {
-    gap: 60px;
+  gap: 60px;
 }
 
 .descriptContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    line-height: 45px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  line-height: 45px;
 }
 
 .status {
-    display: flex;
-    background-color: #2c3e50;
-    align-items: center;
-    gap: 15px;
+  display: flex;
+  background-color: #2c3e50;
+  align-items: center;
+  gap: 15px;
 }
 
-.finishedBtn, .progressBtn {
-    color: white
+.finishedBtn,
+.progressBtn {
+  color: white;
 }
 
 .infoHeader {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-.descriptContainer>p, .infoHeader>p, .footerInfo>p, .row2Header>p {
-    font-size: 24px;
+.descriptContainer > p,
+.infoHeader > p,
+.footerInfo > p,
+.row2Header > p {
+  font-size: 24px;
 }
 
 .row2Header {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-bottom: -15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: -15px;
 }
 
-.footerInfo>p {
-    font-weight: 900;
-    font-size: 26px;
+.footerInfo > p {
+  font-weight: 900;
+  font-size: 26px;
 }
 
-.infoHeader>h1 {
-    font-size: 40px;
+.infoHeader > h1 {
+  font-size: 40px;
 }
 
- .descriptContainer>h2 {
-    font-size: 32px;
- }
+.descriptContainer > h2 {
+  font-size: 32px;
+}
 
 .inputRow {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
-.inputRow>input[type='text'], .inputRow>input[type='url'], .inputRow>input[type='number']{
-    height: 45px;
-    padding: 5px 15px;
-    width: 600px;
-    font-size: 20px;
+.inputRow > input[type="text"],
+.inputRow > input[type="url"],
+.inputRow > input[type="number"] {
+  height: 45px;
+  padding: 5px 15px;
+  width: 600px;
+  font-size: 20px;
 }
 
 .input5 {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
-.input5>textarea {
-    display: flex;
-    height: 250px;
-    width: 600px;
-    font-size: 22px;
-    resize: none;
-    padding: 15px 15px 5px;
+.input5 > textarea {
+  display: flex;
+  height: 150px;
+  width: 600px;
+  font-size: 22px;
+  resize: none;
+  padding: 15px 15px 5px;
 }
 
 .input6 {
-    display: flex;
-    gap: 15px;
-    align-items: center;
+  display: flex;
+  gap: 15px;
+  align-items: center;
 }
 
-input[type='checkbox'] {
-    height: 25px;
-    width: 25px;
+input[type="checkbox"] {
+  height: 25px;
+  width: 25px;
 }
 
 .formLabel {
-    font-size: 26px;
-    font-weight: 700;
+  font-size: 26px;
+  font-weight: 700;
 }
 
 .formHeader {
-    font-size: 36px;
-    border-bottom: 5px solid white;
-    padding-bottom: 10px;
+  font-size: 36px;
+  border-bottom: 5px solid white;
+  padding-bottom: 10px;
 }
 
 .formFooter {
-    display: flex;
-    gap: 100px;
+  display: flex;
+  gap: 100px;
 }
 
-.closeBtn, .submitBtn {
-    display: flex;
-    justify-content: center;
-    flex: 1;
-    height: 65px;
-    border: 3px solid #f9f5e9;
-    box-shadow: 0 2px 4px 6px rgba(0,0,0,0.2);
-    background-color: #3c5566;
+.closeBtn,
+.submitBtn {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+  height: 65px;
+  border: 3px solid #f9f5e9;
+  box-shadow: 0 2px 4px 6px rgba(0, 0, 0, 0.2);
+  background-color: #3c5566;
 }
 
-.closeBtn:hover, .submitBtn:hover {
-    box-shadow: 0 4px 6px 8px rgba(0,0,0,0.4);
+.closeBtn:hover,
+.submitBtn:hover {
+  box-shadow: 0 4px 6px 8px rgba(0, 0, 0, 0.4);
 }
